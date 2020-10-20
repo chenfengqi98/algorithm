@@ -75,7 +75,10 @@ public class Queen {
 
     public static void main(String[] args) {
         Queen queue = new Queen();
-        System.out.println(queue.queen(8));
-
+        final List<List<String>> queen = queue.queen(4);
+        queen.forEach(res -> {
+            res.forEach(System.out::println);
+            System.out.println("---------");
+        });
     }
 }
