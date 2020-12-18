@@ -29,7 +29,10 @@ public class CountNodes {
         int left = countLevel(root.left);
         int right = countLevel(root.right);
 
-        if(left == right) return left * left;
+        if (left == right) return countHelper2(root.right) + (1 << left);
+        else {
+            return countHelper2(root.left) + 1 << right;
+        }
     }
 
     public int countLevel(TreeNode root) {
@@ -38,12 +41,12 @@ public class CountNodes {
             root = root.left;
             level++;
         }
-        return level
+        return level;
     }
 
     public static void main(String[] args) {
         CountNodes countNodes = new CountNodes();
-        System.out.println(countNodes.countNodes(TreeNode.getTree()));
+        System.out.println(countNodes.countHelper(TreeNode.getTree()));
         System.out.println(countNodes.countHelper2(TreeNode.getTree()));
     }
 }
