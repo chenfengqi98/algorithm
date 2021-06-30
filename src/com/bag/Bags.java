@@ -43,7 +43,25 @@ public class Bags {
         System.out.println(dp[weights.length - 1][bagWeight]);
     }
 
+    public static void bagsII() {
+        // 各个物品的重量
+        int[] weights = new int[]{1, 3, 4};
+        // //对应的价值
+        int[] values = new int[]{15, 20, 30};
+        // 背包大小
+        int bagWeight = 4;
+        // 一维数组：状态定义:dp[j]表示容量为j的背包能放下东西的最大价值
+        int[] dp = new int[bagWeight + 1];
+        for (int i = 0; i < weights.length; i++) {
+            for (int j = bagWeight; j >= weights[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - weights[i]] + values[i]);
+            }
+        }
+        System.out.println(dp[bagWeight]);
+    }
+
     public static void main(String[] args) {
         bags();
+        bagsII();
     }
 }
