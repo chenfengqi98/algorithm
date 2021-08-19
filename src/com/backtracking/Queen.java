@@ -21,9 +21,9 @@ public class Queen {
             if (!isValid(board, row, col)) {
                 continue;
             }
-            board[col][row] = 'Q';
+            board[row][col] = 'Q';
             backtrack(board, row + 1, res);
-            board[col][row] = '.';
+            board[row][col] = '.';
         }
     }
 
