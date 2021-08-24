@@ -4,7 +4,7 @@ import com.leetcode.TreeOrder;
 import com.leetcode.data.TreeNode;
 
 /**
- * 二叉树展开为列表
+ * 114.二叉树展开为列表
  */
 public class Flatten {
 

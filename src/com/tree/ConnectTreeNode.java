@@ -1,7 +1,7 @@
 package com.tree;
 
 /**
- * 填充每个节点的下一个右侧节点
+ * 116.填充每个节点的下一个右侧节点
  */
 public class ConnectTreeNode {
     TreeNodeWithNext connect(TreeNodeWithNext root) {

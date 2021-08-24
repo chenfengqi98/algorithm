@@ -3,6 +3,9 @@ package com.tree;
 import com.leetcode.TreeOrder;
 import com.leetcode.data.TreeNode;
 
+/**
+ * 226.翻转二叉树
+ */
 public class InvertTree {
 
     TreeNode invertTree(TreeNode root) {
