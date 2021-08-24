@@ -88,7 +88,7 @@ public class TreeOrder {
         return res;
     }
 
-    private List<List<Integer>> levelOrder(TreeNode root) {
+    public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ans = new LinkedList<List<Integer>>();
         Queue<TreeNode> q = new LinkedList<TreeNode>();
         if (root == null) return ans;
