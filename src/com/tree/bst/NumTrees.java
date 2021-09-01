@@ -71,9 +71,9 @@ public class NumTrees {
         }
 
         for (int i = low; i <= high; i++) {
-            List<TreeNode> leftTress = build(low, i - 1);
+            List<TreeNode> leftTrees = build(low, i - 1);
             List<TreeNode> rightTrees = build(i + 1, high);
-            for (TreeNode left : leftTress) {
+            for (TreeNode left : leftTrees) {
                 for (TreeNode right : rightTrees) {
                     // i 作为根节点 root 的值
                     TreeNode root = new TreeNode(i);
