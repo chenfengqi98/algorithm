@@ -11,7 +11,7 @@ public class BinarySearch {
         // 搜索区间 [left,right]
         int left = 0, right = nums.length - 1;
 
-        // 终止条件是left == right + 1，[right+1,right+1]，此时区间为空
+        // 终止条件是left == right + 1，[right+1,right]，此时区间为空
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
@@ -54,7 +54,7 @@ public class BinarySearch {
     public int left_bound1(int[] nums, int target) {
         // 搜索区间 [left,right]
         int left = 0, right = nums.length - 1;
-        // 终止条件是left == right + 1，[right+1,right+1]，此时区间为空
+        // 终止条件是left == right + 1，[right+1,right]，此时区间为空
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
@@ -98,7 +98,7 @@ public class BinarySearch {
     public int right_bound1(int[] nums, int target) {
         // 搜索区间 [left,right]
         int left = 0, right = nums.length - 1;
-        // 终止条件是left == right + 1，[right+1,right+1]，此时区间为空
+        // 终止条件是left == right + 1，[right+1,right]，此时区间为空
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
