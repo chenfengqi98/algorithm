@@ -32,11 +32,16 @@ public class MinDepth {
                 if (curr.right != null) {
                     queue.offer(curr.right);
                 }
-                depth++;
             }
+            depth++;
         }
 
         return depth;
     }
 
+    public static void main(String[] args) {
+        TreeNode bsTree = TreeNode.getBSTree();
+        MinDepth minDepth = new MinDepth();
+        System.out.println(minDepth.minDepth(bsTree));
+    }
 }
