@@ -22,7 +22,7 @@ public class SerializeTree {
         return sb.toString();
     }
 
-    void serialize(TreeNode root, StringBuilder sb) {
+    public void serialize(TreeNode root, StringBuilder sb) {
         // 前序遍历
         if (root == null) {
             sb.append(NULL).append(SEP);
@@ -34,12 +34,12 @@ public class SerializeTree {
     }
 
 
-    TreeNode deserialize(String data) {
+    public TreeNode deserialize(String data) {
         LinkedList<String> nodes = new LinkedList<>(Arrays.asList(data.split(SEP)));
         return deserialize(nodes);
     }
 
-    TreeNode deserialize(LinkedList<String> nodes) {
+    public TreeNode deserialize(LinkedList<String> nodes) {
         // 前序
         if (nodes.isEmpty()) return null;
 
@@ -75,7 +75,7 @@ public class SerializeTree {
         return sb.toString();
     }
 
-    void serializeByPostOrder(TreeNode root, StringBuilder sb) {
+    public void serializeByPostOrder(TreeNode root, StringBuilder sb) {
         // 后序
         if (root == null) {
             sb.append(NULL).append(SEP);
@@ -87,12 +87,12 @@ public class SerializeTree {
     }
 
 
-    TreeNode deserializeByPostOrder(String data) {
+    public TreeNode deserializeByPostOrder(String data) {
         LinkedList<String> nodes = new LinkedList<>(Arrays.asList(data.split(SEP)));
         return deserializeByPostOrder(nodes);
     }
 
-    TreeNode deserializeByPostOrder(LinkedList<String> nodes) {
+    public TreeNode deserializeByPostOrder(LinkedList<String> nodes) {
         // 后序
         if (nodes.isEmpty()) return null;
 
