@@ -53,6 +53,7 @@ public class MergeTwoLists {
         System.out.println(listNode);
 
         ListNode node = mergeTwoLists.mergeKLists(new ListNode[]{null});
+        node = mergeTwoLists.mergeKLists2(new ListNode[]{null});
         System.out.println(node);
     }
 
@@ -81,4 +82,26 @@ public class MergeTwoLists {
         }
         return dummy.next;
     }
+
+
+    public ListNode mergeKLists2(ListNode[] lists) {
+        if (lists.length == 0) return null;
+        ListNode dummy = new ListNode(-1), curr = dummy;
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (Comparator.comparingInt(n -> n.val)));
+        for (ListNode head : lists) {
+            if (head != null) {
+                queue.add(head);
+            }
+        }
+        while (!queue.isEmpty()) {
+            ListNode poll = queue.poll();
+            curr.next = poll;
+            if (poll.next != null) {
+                queue.add(poll.next);
+            }
+            curr = curr.next;
+        }
+        return dummy.next;
+    }
+
 }

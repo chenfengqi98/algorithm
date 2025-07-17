@@ -25,6 +25,34 @@ public class GetIntersectionNode {
         return p1;
     }
 
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+        int lenA = 0, lenB = 0;
+        ListNode curA = headA, curB = headB;
+        while (curA != null) {
+            lenA++;
+            curA = curA.next;
+        }
+        while (curB != null) {
+            lenB++;
+            curB = curB.next;
+        }
+        curA = headA;curB = headB;
+        if (lenA > lenB) {
+            for (int i = 0; i < lenA - lenB; i++) {
+                curA = curA.next;
+            }
+        } else {
+            for (int i = 0; i < lenB - lenA; i++) {
+                curB = curB.next;
+            }
+        }
+        while (curA != curB) {
+            curA = curA.next;
+            curB = curB.next;
+        }
+        return curA;
+    }
+
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
@@ -42,6 +70,10 @@ public class GetIntersectionNode {
 
         GetIntersectionNode getIntersectionNode = new GetIntersectionNode();
         ListNode intersectionNode = getIntersectionNode.getIntersectionNode(node1, node2);
+        System.out.println(intersectionNode.val);
+
+
+        intersectionNode = getIntersectionNode.getIntersectionNode2(node1, node2);
         System.out.println(intersectionNode.val);
     }
 }

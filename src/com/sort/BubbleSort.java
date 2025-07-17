@@ -39,10 +39,33 @@ public class BubbleSort {
         }
     }
 
+    public static void bubbleSort3(int[] nums) {
+        int length = nums.length;
+        if (nums.length <= 1) {
+            return;
+        }
+        int sortIndex = 0;
+        while (sortIndex < length) {
+            boolean swapped = false;
+            for (int i = length - 1; i > sortIndex; i--) {
+                if (nums[i] < nums[i - 1]) {
+                    int temp = nums[i];
+                    nums[i] = nums[i - 1];
+                    nums[i - 1] = temp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) {
+                break;
+            }
+            sortIndex++;
+        }
+    }
+
 
     public static void main(String[] args) {
         int[] nums = {3, 8, 2, 5, 1, 3};
-        bubbleSort2(nums);
+        bubbleSort3(nums);
         for (int num : nums) {
             System.out.printf(num + "");
         }
