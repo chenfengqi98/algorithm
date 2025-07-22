@@ -1,4 +1,4 @@
-package com.doublepointer;
+package com.slide.window;
 
 public class SlideWindowTemplate {
 /*

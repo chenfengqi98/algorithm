@@ -1,4 +1,4 @@
-package com.doublepointer;
+package com.slide.window;
 
 import java.util.HashMap;
 
@@ -34,7 +34,7 @@ public class MinimumSubstring {
                     valid++;
                 }
             }
-            while (valid == needs.keySet().size()) {
+            while (valid == needs.size()) {
                 // 记录答案
                 if (right - left < len) {
                     start = left;
