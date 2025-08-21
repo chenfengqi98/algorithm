@@ -113,6 +113,36 @@ public class TreeOrder {
 
     }
 
+    public List<List<Integer>> levelOrder2(TreeNode root) {
+        List<List<Integer>> ans = new LinkedList<>();
+        if (root == null) {
+            return ans;
+        }
+        List<TreeNode> nodes = new LinkedList<>();
+        nodes.add(root);
+        levelOrder2Helper(nodes, ans);
+        return ans;
+    }
+
+    void levelOrder2Helper(List<TreeNode> nodes, List<List<Integer>> ans) {
+        if (nodes.isEmpty()) {
+            return;
+        }
+        List<Integer> levelValues = new LinkedList<>();
+        List<TreeNode> nextLevelNodes = new LinkedList<>();
+        for (TreeNode node : nodes) {
+            levelValues.add(node.val);
+            if (node.left != null) {
+                nextLevelNodes.add(node.left);
+            }
+            if (node.right == null) {
+                nextLevelNodes.add(node.right);
+            }
+        }
+        ans.add(levelValues);
+        levelOrder2Helper(nextLevelNodes, ans);
+    }
+
     public static void main(String[] args) {
         TreeOrder treeOrder = new TreeOrder();
         TreeNode treeNode = TreeNode.getTree();
@@ -123,5 +153,6 @@ public class TreeOrder {
         treeOrder.postOrder1(treeNode);
         System.out.println(treeOrder.postOrder2(treeNode));
         System.out.println(treeOrder.levelOrder(treeNode));
+        System.out.println(treeOrder.levelOrder2(treeNode));
     }
 }

@@ -14,6 +14,7 @@ public class OpenLock {
         OpenLock openLock = new OpenLock();
         String[] deadEnds = {"0201", "0101", "0102", "1212", "2002"};
         System.out.println(openLock.openLock(deadEnds, "0202"));
+        System.out.println(openLock.getNeighbors("0202"));
     }
 
     public int openLock(String[] deadEnds, String target) {
@@ -68,4 +69,42 @@ public class OpenLock {
             chars[i] -= 1;
         return new String(chars);
     }
+
+    public int openLock2(String[] deadends, String target) {
+        Set<String> set = new HashSet<>(Arrays.asList(deadends));
+        if (set.contains("0000")) return -1;
+
+        Set<String> visited = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        queue.offer("0000");
+        int step = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                String cur = queue.poll();
+                if (cur.equals(target)) return step;
+                for (String neighbor : getNeighbors(cur)) {
+                    if (!visited.contains(neighbor) && !set.contains(neighbor)) {
+                        queue.offer(neighbor);
+                        visited.add(neighbor);
+                    }
+                }
+            }
+            step++;
+        }
+        return -1;
+    }
+
+    public List<String> getNeighbors(String curr) {
+        List<String> res = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            String plus = plus(curr, i);
+            res.add(plus);
+            String sub = sub(curr, i);
+            res.add(sub);
+        }
+        return res;
+    }
+
+
 }
