@@ -51,7 +51,7 @@ public class ShipWithinDays {
         }
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (check(weights, days, mid)) {
+            if (canShip(weights, days, mid)) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
@@ -81,25 +81,12 @@ public class ShipWithinDays {
         return day <= days;
     }
 
-    static boolean check(int[] weights, int cap, int days) {
-        int n = weights.length;
-        int day = 1;
-        for (int i = 1, sum = weights[0]; i < n; sum = 0, day++) {
-            while (i < n && sum + weights[i] <= cap) {
-                sum += weights[i];
-                i++;
-            }
-        }
-        return day - 1 <= days;
-    }
-
-
     public static void main(String[] args) {
 //        System.out.println(canShip(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 1, 15));
 //        System.out.println(shipWithinDays(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 2));
 //        System.out.println(shipWithinDays(new int[]{1, 2, 3, 1, 1}, 4));
 //        System.out.println(canShip(new int[]{1, 2, 3, 1, 1}, 4, 2));
-//        System.out.println(shipWithinDays(new int[]{147, 73, 265, 305, 191, 152, 192, 293, 309, 292, 182, 157, 381, 287, 73, 162, 313, 366, 346, 47}, 10));
+        System.out.println(shipWithinDays(new int[]{147, 73, 265, 305, 191, 152, 192, 293, 309, 292, 182, 157, 381, 287, 73, 162, 313, 366, 346, 47}, 11));
         System.out.println(canShip(new int[]{
                 147, 73, 265,
                 305, 191,
@@ -111,6 +98,6 @@ public class ShipWithinDays {
                 287, 73, 162,
                 313,
                 366,
-                346, 47}, 10, 602));
+                346, 47}, 11, 538));
     }
 }
